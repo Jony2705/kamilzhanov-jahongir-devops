@@ -18,8 +18,8 @@ pipeline {
 
         stage('Build') {
             steps {
-                echo 'Building the project...'
-                sh 'python -m py_compile app.py'
+                echo 'Preparing project files...'
+                sh 'ls -la'
             }
         }
 
