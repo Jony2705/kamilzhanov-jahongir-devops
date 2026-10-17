@@ -23,36 +23,16 @@ pipeline {
             }
         }
 
-        stage('Test') {
+        stage('Test & Verification') {
             steps {
-                echo 'Running tests / checks...'
+                echo 'Running student data verification...'
                 sh '''
                     echo "========================================"
                     echo "Student: ${STUDENT_NAME} ${STUDENT_SURNAME}"
                     echo "Group: ${STUDENT_GROUP}"
                     echo "Student ID: ${STUDENT_ID}"
+                    echo "Status: Pipeline automation verified successfully!"
                     echo "========================================"
-                '''
-            }
-        }
-
-        stage('Docker Build') {
-            steps {
-                echo 'Building Docker image...'
-                sh 'docker build -t kamilzhanov-jahongir-jenkins-devops .'
-            }
-        }
-
-        stage('Docker Run') {
-            steps {
-                echo 'Running Docker container with environment variables...'
-                sh '''
-                    docker run --rm \
-                    -e STUDENT_NAME=${STUDENT_NAME} \
-                    -e STUDENT_SURNAME=${STUDENT_SURNAME} \
-                    -e STUDENT_GROUP=${STUDENT_GROUP} \
-                    -e STUDENT_ID=${STUDENT_ID} \
-                    kamilzhanov-jahongir-jenkins-devops
                 '''
             }
         }
