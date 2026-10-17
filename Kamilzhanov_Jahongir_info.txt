@@ -1,0 +1,5 @@
+Name: Jahongir
+Surname: Kamilzhanov
+Group: IT2-2314
+Student ID: 37941
+Course: DevOps
